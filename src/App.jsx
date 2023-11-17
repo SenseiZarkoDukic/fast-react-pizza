@@ -7,7 +7,6 @@ import Order from "./features/order/Order.jsx";
 import AppLayout from "./ui/AppLayout.jsx";
 const router = createBrowserRouter([
   {
-    path: "/",
     element: <AppLayout />,
     children: [
       {
