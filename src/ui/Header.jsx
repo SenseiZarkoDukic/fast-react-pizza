@@ -3,7 +3,9 @@ import { Link } from "react-router-dom";
 function Header() {
   return (
     <header>
-      <Link to="/">Home</Link>
+      <Link to="/">Fast React Pizza Co.</Link>
+
+      <p>Zarko</p>
     </header>
   );
 }

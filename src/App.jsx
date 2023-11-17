@@ -4,6 +4,7 @@ import Menu from "./features/menu/Menu.jsx";
 import Cart from "./features/cart/Cart.jsx";
 import CreateOrder from "./features/order/CreateOrder.jsx";
 import Order from "./features/order/Order.jsx";
+import AppLayout from "./ui/AppLayout.jsx";
 const router = createBrowserRouter([
   {
     path: "/",
