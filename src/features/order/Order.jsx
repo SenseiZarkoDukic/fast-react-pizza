@@ -1,10 +1,12 @@
 // Test ID: IIDSAT
 
+import { useParams } from "react-router-dom";
 import {
   calcMinutesLeft,
   formatCurrency,
   formatDate,
 } from "../../utils/helpers";
+import { getOrder } from "../../services/apiRestaurant";
 
 const order = {
   id: "ABCDEF",
@@ -81,6 +83,13 @@ function Order() {
       </div>
     </div>
   );
+}
+
+export async function loader() {
+  const { id } = useParams();
+  const order = await getOrder(id);
+
+  return order;
 }
 
 export default Order;
