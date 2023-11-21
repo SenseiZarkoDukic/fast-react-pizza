@@ -85,9 +85,8 @@ function Order() {
   );
 }
 
-export async function loader() {
-  const { id } = useParams();
-  const order = await getOrder(id);
+export async function loader({ params }) {
+  const order = await getOrder(params.orderId);
 
   return order;
 }
