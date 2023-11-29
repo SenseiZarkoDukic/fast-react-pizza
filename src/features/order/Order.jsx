@@ -4,41 +4,41 @@ import {
   calcMinutesLeft,
   formatCurrency,
   formatDate,
-} from "../../utils/helpers";
-import { getOrder } from "../../services/apiRestaurant";
-import { useLoaderData } from "react-router-dom";
+} from '../../utils/helpers';
+import { getOrder } from '../../services/apiRestaurant';
+import { useLoaderData } from 'react-router-dom';
 
 const order = {
-  id: "ABCDEF",
-  customer: "Jonas",
-  phone: "123456789",
-  address: "Arroios, Lisbon , Portugal",
+  id: 'ABCDEF',
+  customer: 'Jonas',
+  phone: '123456789',
+  address: 'Arroios, Lisbon , Portugal',
   priority: true,
-  estimatedDelivery: "2027-04-25T10:00:00",
+  estimatedDelivery: '2027-04-25T10:00:00',
   cart: [
     {
       pizzaId: 7,
-      name: "Napoli",
+      name: 'Napoli',
       quantity: 3,
       unitPrice: 16,
       totalPrice: 48,
     },
     {
       pizzaId: 5,
-      name: "Diavola",
+      name: 'Diavola',
       quantity: 2,
       unitPrice: 16,
       totalPrice: 32,
     },
     {
       pizzaId: 3,
-      name: "Romana",
+      name: 'Romana',
       quantity: 1,
       unitPrice: 15,
       totalPrice: 15,
     },
   ],
-  position: "-9.000,38.000",
+  position: '-9.000,38.000',
   orderPrice: 95,
   priorityPrice: 19,
 };
@@ -58,7 +58,7 @@ function Order() {
   const deliveryIn = calcMinutesLeft(estimatedDelivery);
 
   return (
-    <div>
+    <div className="px-4 py-6">
       <div>
         <h2>Status</h2>
 
@@ -72,7 +72,7 @@ function Order() {
         <p>
           {deliveryIn >= 0
             ? `Only ${calcMinutesLeft(estimatedDelivery)} minutes left 😃`
-            : "Order should have arrived"}
+            : 'Order should have arrived'}
         </p>
         <p>(Estimated delivery: {formatDate(estimatedDelivery)})</p>
       </div>
