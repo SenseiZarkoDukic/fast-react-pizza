@@ -5,6 +5,7 @@ import LinkButton from '../../ui/LinkButton';
 import { useDispatch, useSelector } from 'react-redux';
 import { clearCart, getCart } from './cartSlice';
 import { getUsername } from '../user/userSlice';
+import EmptyCart from './EmptyCart';
 
 const fakeCart = [
   {
@@ -38,6 +39,8 @@ function Cart() {
   const handleClearCart = () => {
     dispatch(clearCart());
   };
+
+  if (!cart.length) return <EmptyCart />;
 
   return (
     <div className="px-4 py-3">
