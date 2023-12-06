@@ -53,6 +53,10 @@ const userSlice = createSlice({
         state.status = 'idle';
         state.position = action.payload.position;
         state.address = action.payload.address;
+      })
+      .addCase(fetchAddress.rejected, (state, action) => {
+        state.status = 'error';
+        state.error = action.error.message;
       }),
 });
 
