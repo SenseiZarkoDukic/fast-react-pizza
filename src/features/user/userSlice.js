@@ -29,6 +29,10 @@ export const fetchAddress = createAsyncThunk(
 
 const initialState = {
   username: '',
+  status: 'idle',
+  position: {},
+  address: '',
+  error: '',
 };
 
 const userSlice = createSlice({
@@ -40,10 +44,9 @@ const userSlice = createSlice({
     },
   },
   extraReducers: (builder) =>
-    builder.addCase(
-      fetchAddress.pending,
-      (state, action) => (state.status = 'loading'),
-    ),
+    builder.addCase(fetchAddress.pending, (state, action) => {
+      state.status = 'loading';
+    }),
 });
 
 export const { updateName } = userSlice.actions;
