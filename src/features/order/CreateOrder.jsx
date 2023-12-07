@@ -96,23 +96,27 @@ function CreateOrder() {
               type="text"
               name="address"
               disabled={isLoadingAddress}
+              defaultValue={address}
               required
             />
           </div>
-          <span
-            className="absolute right-[3px] 
+          {!position.latitude && !position.longitude && (
+            <span
+              className="absolute right-[3px] 
        z-50   text-xs text-gray-500"
-          >
-            <Button
-              type="small"
-              onClick={(e) => {
-                e.preventDefault();
-                dispatch(fetchAddress());
-              }}
             >
-              Get position
-            </Button>
-          </span>
+              <Button
+                disabled={isLoadingAddress}
+                type="small"
+                onClick={(e) => {
+                  e.preventDefault();
+                  dispatch(fetchAddress());
+                }}
+              >
+                Get position
+              </Button>
+            </span>
+          )}
         </div>
 
         <div className="mb-12 flex items-center   gap-5">
@@ -129,7 +133,7 @@ function CreateOrder() {
 
         <div>
           <input type="hidden" name="cart" value={JSON.stringify(cart)} />
-          <Button disabled={isSubmitting} type="primary">
+          <Button disabled={isSubmitting || isLoadingAddress} type="primary">
             {isSubmitting
               ? 'Placing order...'
               : `Order now from ${formatCurrency(totalPrice)}`}
