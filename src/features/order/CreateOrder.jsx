@@ -57,7 +57,13 @@ function CreateOrder() {
   return (
     <div className="px-4 py-6">
       <h2 className="mb-8 text-xl font-semibold">Ready to order? Let's go!</h2>
-      <button onClick={() => console.log(dispatch(fetchAddress()))}>
+      <button
+        onClick={() =>
+          dispatch(fetchAddress()).then((response) => {
+            console.log(response.payload.address, response.payload.position);
+          })
+        }
+      >
         Get position
       </button>
       {/* <Form method="POST" action="/order/new"> */}
