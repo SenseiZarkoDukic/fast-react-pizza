@@ -47,6 +47,7 @@ function CreateOrder() {
     status: addressStatus,
     position,
     address,
+    error: errorAddress,
   } = useSelector((state) => state.user);
   const isLoadingAddress = addressStatus === 'loading';
   const formErrors = useActionData();
@@ -99,11 +100,16 @@ function CreateOrder() {
               defaultValue={address}
               required
             />
+            {addressStatus === 'error' && (
+              <p className="text:xs mt-2 rounded-md bg-red-100 p-2 text-red-700 ">
+                {errorAddress}
+              </p>
+            )}
           </div>
           {!position.latitude && !position.longitude && (
             <span
-              className="absolute right-[3px] 
-       z-50   text-xs text-gray-500"
+              className="absolute right-[3px] top-[3px] z-50 md:right-[5px]
+       md:top-[5px]  "
             >
               <Button
                 disabled={isLoadingAddress}
