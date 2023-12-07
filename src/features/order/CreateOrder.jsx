@@ -47,8 +47,8 @@ function CreateOrder() {
     status: addressStatus,
     position,
     address,
-  } = useSelector((state) => state.user.user);
-
+  } = useSelector((state) => state.user);
+  const isLoadingAddress = addressStatus === 'loading';
   const formErrors = useActionData();
   const dispatch = useDispatch();
   const [withPriority, setWithPriority] = useState(false);
@@ -95,6 +95,7 @@ function CreateOrder() {
               className="input w-full"
               type="text"
               name="address"
+              disabled={isLoadingAddress}
               required
             />
           </div>
