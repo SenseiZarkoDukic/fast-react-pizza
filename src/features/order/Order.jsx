@@ -102,7 +102,7 @@ function Order() {
             isLoadingIngredients={fetcher.state === 'loading'}
             ingredients={
               fetcher?.data?.find((el) => el.id === item.pizzaId)
-                ?.ingredients || []
+                ?.ingredients ?? []
             }
           />
         ))}
